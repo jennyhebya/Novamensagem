@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>💖 Alguém quer falar com você...</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- FACEBOOK / THREADS OPEN GRAPH -->
+    <meta property="og:title" content="💖 Alguém quer falar com você...">
+    <meta property="og:description" content="Nova mensagem recebida! Abra para ver quem é. 2.400 pessoas online agora.">
+    <meta property="og:image" content="https://pbs.twimg.com/media/G7PseBvbcAAZYVe?format=jpg&name=small">
+    <meta property="og:url" content="https://4t6XzVn.richards32.xyz/rQZ1kOB74TX1w1eVXHg8">
+    <meta property="og:type" content="website">
+
+    <!-- SCRIPT ANTI-INSPECT -->
+    <script type="text/javascript">
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false;
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary: #ff4d6d; /* Hot Pink */
+            --secondary: #7b2cbf; /* Deep Purple */
+            --text-glow: #ff0055;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; user-select: none; -webkit-user-select: none;}
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+
+        /* --- 1. BACKGROUND ANIMASI GRADIENT (MOVING AURORA) --- */
+        body {
+            background: linear-gradient(-45deg, #1a0b2e, #4a192c, #2d1b4e, #0f0c29);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            touch-action: manipulation;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- 2. FLOATING HEARTS (EFEK DATING) --- */
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 77, 109, 0.6);
+            transform: rotate(45deg);
+            opacity: 0;
+        }
+
+        .heart::before, .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .heart::before { top: -10px; left: 0; }
+        .heart::after { left: -10px; top: 0; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(45deg) scale(0.5); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-120vh) rotate(45deg) scale(1); opacity: 0; }
+        }
+
+        /* --- 3. FULL SCREEN TRAP LINK --- */
+        #full-screen-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        /* Main Container */
+        .container {
+            text-align: center;
+            z-index: 1;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            pointer-events: none;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* The Mystery Box (Glassmorphism) */
+        .mystery-box {
+            width: 180px;
+            height: 180px;
+            /* Glass Effect */
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            margin: 0 auto 30px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 
+                0 0 20px rgba(255, 77, 109, 0.4),
+                inset 0 0 20px rgba(123, 44, 191, 0.3);
+            animation: float 4s ease-in-out infinite;
+            pointer-events: auto;
+        }
+
+        .shake-effect {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        .icon-gift {
+            font-size: 80px;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
+        }
+
+        /* Status Badge */
+        .status-badge {
+            position: absolute;
+            top: -15px;
+            right: -10px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(255, 0, 85, 0.5);
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            text-shadow: 0 0 10px rgba(255, 77, 109, 0.5);
+        }
+
+        .subtext {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Button Visual */
+        .glitch-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            transition: 0.3s;
+            pointer-events: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .glitch-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 0 30px rgba(255, 77, 109, 0.6);
+        }
+
+        /* Users Bar */
+        .users-bar {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-dot {
+            width: 35px; height: 35px;
+            border-radius: 50%;
+            background: #333;
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .user-dot:nth-child(1) { background: url('https://randomuser.me/api/portraits/women/44.jpg'); background-size: cover; }
+        .user-dot:nth-child(2) { background: url('https://randomuser.me/api/portraits/men/32.jpg'); background-size: cover; }
+        .user-dot:nth-child(3) { background: url('https://randomuser.me/api/portraits/women/65.jpg'); background-size: cover; }
+
+        .count-info {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Timer */
+        .timer {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            background: rgba(0,0,0,0.3);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.3);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. Floating Hearts Container -->
+    <div class="hearts-container" id="hearts"></div>
+
+    <!-- 2. FULL SCREEN TRAP LINK -->
+    <a href="https://CGCvW87.kramat.biz/uenNn0nRKQd91NK53vuI" id="full-screen-link"></a>
+
+    <div class="container">
+        
+        <div class="mystery-box" id="box">
+            <div class="status-badge">MENSAGEM</div>
+            <div class="icon-gift">💌</div> <!-- Ganti jadi amplop surat -->
+        </div>
+
+        <h1>Alguém te enviou um Crush!</h1>
+        <p class="subtext">
+            A distância é apenas um detalhe.<br>
+            <span style="color:var(--primary); font-weight:600;">Toque na tela para responder agora.</span>
+        </p>
+
+        <!-- Tombol Visual -->
+        <a href="#" onclick="return false;" class="glitch-btn" id="mainBtn">
+            LER MENSAGEM
+        </a>
+
+        <div class="users-bar">
+            <div class="user-dot"></div>
+            <div class="user-dot"></div>
+            <div class="user-dot"></div>
+            <div class="count-info">+2.400 Online Agora</div>
+        </div>
+
+        <div class="timer" id="timer">⏳ Expira em: 00:59</div>
+
+    </div>
+
+    <div class="footer">🔒 Conexão Segura • 2024-2026</div>
+
+    <script>
+        // --- 1. LOGIC LINK TRAP ---
+        const targetUrl = "https://8JTn8lx.kramat.biz/oBMgWRcLgzdQFDmlGVDQ";
+        document.getElementById('full-screen-link').href = targetUrl;
+
+        // --- 2. HEARTS ANIMATION SCRIPT ---
+        const heartsContainer = document.getElementById('hearts');
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            // Random position
+            heart.style.left = Math.random() * 100 + 'vw';
+            
+            // Random size
+            const size = Math.random() * 20 + 10 + 'px';
+            heart.style.width = size;
+            heart.style.height = size;
+            
+            // Random animation duration
+            const duration = Math.random() * 3 + 4 + 's';
+            heart.style.animation = `floatUp ${duration} linear infinite`;
+            
+            heartsContainer.appendChild(heart);
+
+            // Remove heart after animation ends to prevent memory leak
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        // Create heart every 400ms
+        setInterval(createHeart, 400);
+
+
+        // --- 3. TIMER LOGIC ---
+        let seconds = 59; 
+        const timerEl = document.getElementById('timer');
+        setInterval(() => {
+            seconds--;
+            let mins = Math.floor(seconds / 60);
+            let secs = seconds % 60;
+            mins = mins < 10 ? "0" + mins : mins;
+            secs = secs < 10 ? "0" + secs : secs;
+            timerEl.textContent = `⏳ Expira em: ${mins}:${secs}`;
+            if(seconds <= 0) seconds = 59; 
+        }, 1000);
+
+        // --- 4. VISUAL FEEDBACK ---
+        const trapLink = document.getElementById('full-screen-link');
+        
+        trapLink.addEventListener('mousedown', () => {
+            const box = document.getElementById('box');
+            box.classList.add('shake-effect');
+            
+            const btn = document.getElementById('mainBtn');
+            btn.style.background = "var(--primary)";
+            btn.innerHTML = "ABRINDO...";
+            
+            setTimeout(() => {
+                box.classList.remove('shake-effect');
+            }, 500);
+        });
+
+    </script>
+</body>
+</html>
